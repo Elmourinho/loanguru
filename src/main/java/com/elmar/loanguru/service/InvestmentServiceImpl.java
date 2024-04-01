@@ -40,7 +40,7 @@ public class InvestmentServiceImpl implements InvestmentService {
                 .orElseThrow(() -> new LoanException(Errors.LOAN_NOT_FOUND, Map.of("id", loanId)));
 
         if (investmentInputDto.getAmount().compareTo(loan.getMaxInvestAmount()) > 0) {
-            throw new LoanException(Errors.EXCEEDS_MAX_AMOUNT, null);
+            throw new LoanException(Errors.EXCEEDS_MAX_AMOUNT);
         }
 
         BigDecimal investmentAmount = investmentInputDto.getAmount();

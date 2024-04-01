@@ -26,6 +26,10 @@ public class LoanException extends RuntimeException {
 		this.messageArguments = messageArguments;
 	}
 
+	public LoanException(ErrorResponse errorResponse) {
+		this(errorResponse, Map.of());
+	}
+
 	@Override
 	public String getMessage() {
 		return messageArguments.isEmpty() ? errorResponse.getMessage() :
